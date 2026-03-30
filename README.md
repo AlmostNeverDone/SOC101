@@ -5,24 +5,30 @@
 
 <h2>Outline 簡介</h2>
 
-<div align="center">
-</p>
+Simulated SOC environment with real-world alert triage and incident response workflow. This scenario is a basic phishing event with a total of 5 alerts. SIEM tools available include Elastic, Splunk, and Sentinel. It also includes the analyst VM and TryDetectThis (a scenario-based version of VirusTotal).
 
-| Category 分類                                                           | Tools / Concepts 工具與概念                 |
-| ----------------------------------------------------------------------- | ------------------------------------------ |
-| Scenario <br/>本次情境                                                  | Introduction to Phishing <br/>網路釣魚入門  |
-| Alerts <br/>警報                                                        | 5                                          |
-| Security Information and Event Management <br/>安全資訊和事件管理 (SIEM) | Elastic                                    |
-| Other Tools <br/>其他工具                                               | Analyst VM, TryDetectThis                  |
+模擬安全營運中心 (SOC) 環境，包含真實世界的警報分類和事件回應工作流程。本次情境為入門級釣魚事件，警報總數 5。SIEM工具可選 Elastic, Splunk, 以及 Sentinel。同時含有分析師 VM 及 TryDetectThis (情境版VirusTotal)
+
+---------
+
+<h2>👥 Employee Asset Inventory 員工資產清單</h2>
 
 
-
-</div>
-<br/>
-
-Simulated SOC environment with real-world alert triage and incident response workflow.
-
-模擬安全營運中心 (SOC) 環境，包含真實世界的警報分類和事件回應工作流程。
+| Name | Department | Email | Logged-in Host | IP Address |
+|------|------------|-------|----------------|------------|
+| Ethan Johnson | Editorial <br/>編輯部| e.johnson@thetrydaily.thm | win-3451 | 10.20.2.1 |
+| Julia Garcia | Content <br/>內容部| j.garcia@thetrydaily.thm | win-3452 | 10.20.2.8 |
+| Isabella Martinez | Marketing <br/>行銷部| i.martinez@thetrydaily.thm | win-3453 | 10.20.2.9 |
+| Benjamin Lopez | Sales <br/>業務部| b.lopez@thetrydaily.thm | win-3454 | 10.20.2.10 |
+| Henry Thomas | Operations <br/>營運部| h.thomas@thetrydaily.thm | win-3455 | 10.20.2.14 |
+| Andrew Moore | IT <br/>資訊部| a.moore@thetrydaily.thm | win-3456 | 10.20.2.16 |
+| Hannah Harris | Human Resources <br/>人力資源部 (HR)| h.harris@thetrydaily.thm | win-3457 | 10.20.2.17 |
+| Tyler Young | Project Management <br/>專案管理| t.young@thetrydaily.thm | win-3458 | 10.20.2.24 |
+| Grace Wright | Content <br/>內容部| g.wright@thetrydaily.thm | win-3459 | 10.20.2.27 |
+| Jacob Carter | IT Support (Helpdesk)<br/>資訊技術支援部| j.carter@thetrydaily.thm | win-3460 | 10.20.2.30 |
+| Chloe Scott | Content <br/>內容部| c.scott@thetrydaily.thm | win-3461 | 10.20.2.21 |
+| Caleb Anderson | Content <br/>內容部| c.anderson@thetrydaily.thm | win-3462 | 10.20.2.13 |
+| Charlotte Allen | Web Development <br/>網頁開發| c.allen@thetrydaily.thm | win-3463 | 10.20.2.25 |
 
 
 
