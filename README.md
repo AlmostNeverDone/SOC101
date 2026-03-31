@@ -35,23 +35,26 @@ Simulated SOC environment with real-world alert triage and incident response wor
 ---------
 <h2>Investigation Workflow 調查工作流程</h2>
 
+[Alert Intake & Triage (警報接收與初判)]
+* Review alert details and logic<br/>
+  查看警報詳情和邏輯</b>
+* Identify initial IOCs (IP, domain, URL)<br/>
+  確定初始入侵指標 (IP 位址、網域名稱、URL)</b>
+* Assign priority based on severity<br/>
+  根據嚴重性分配優先級</b>
+<br/>
+<br/>
 
-* Understand how attackers extract credentials from Windows memory (LSASS).<br/>
-  理解攻擊者如何從 Windows 記憶體 (LSASS) 提取憑證
-  
-* Learn how to use Mimikatz to retrieve plaintext passwords and NTLM hashes.<br/>
-  學習使用 Mimikatz 取得明文密碼與 NTLM 雜湊
-  
-* Understand the role of the SAM database in Windows authentication.<br/>
-  理解 SAM 資料庫在 Windows 驗證機制中的角色
-  
-* Practice credential dumping techniques for post-exploitation scenarios.<br/>
-  實作攻擊後階段的憑證提取技術
+[Context Enrichment via SIEM (SIEM 擴展調查)]
+* Query related logs<br/>
+  查詢相關日誌<br/>
+* Identify affected users and hosts<br/>
+  識別受影響的使用者和主機<br/>
+* Build activity timeline<br/>
+  建構活動時間軸<br/>
 
-* Recognize the security risks of in-memory credential exposure.<br/>
-  辨識記憶體中憑證暴露所帶來的安全風險
-
-
+* Escalation Decision<br/>
+  是否升級
 
 ---------
 
