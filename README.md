@@ -1,5 +1,6 @@
-# SOC Alert Triage & Analyze Email Threat with SIEM tools
-使用 SIEM 工具對 SOC 警報進行分類和電子郵件威脅分析
+# SOC Alert Triage & Phishing Investigation Using Elastic SIEM
+
+使用 Elastic SIEM 進行 SOC 警報分類與釣魚事件調查
 
 ---------
 
