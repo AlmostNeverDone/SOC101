@@ -4,7 +4,7 @@
 
 ---------
 
-<h2>Outline 簡介</h2>
+<h2>Outline｜專題簡介</h2>
 
 Simulated SOC environment with real-world alert triage and incident response workflow. This scenario is a basic phishing event with a total of 5 alerts. SIEM tools available include Elastic, Splunk, and Sentinel. It also includes the analyst VM and TryDetectThis (a scenario-based version of VirusTotal).
 
@@ -12,7 +12,7 @@ Simulated SOC environment with real-world alert triage and incident response wor
 
 ---------
 
-<h2>👥 Employee Asset Inventory 員工資產清單</h2>
+<h2>👥 Employee Asset Inventory｜員工資產清單</h2>
 
 
 | Name | Department | Email | Logged-in Host | IP Address |
@@ -34,7 +34,7 @@ Simulated SOC environment with real-world alert triage and incident response wor
 
 
 ---------
-<h2>Investigation Workflow 調查工作流程</h2>
+<h2>Investigation Workflow｜調查工作流程</h2>
 
 [Alert Intake & Triage (警報接收與初判)]
 * Review alert details and logic<br/>
@@ -59,7 +59,7 @@ Simulated SOC environment with real-world alert triage and incident response wor
 
 ---------
 
-<h2>Tools and Concepts Covered 涵蓋工具與概念</h2>
+<h2>Tools and Concepts Covered｜涵蓋工具與概念</h2>
 
 <div align="center">
 </p>
@@ -83,7 +83,7 @@ Simulated SOC environment with real-world alert triage and incident response wor
 ---------
 
 
-<h2>Materials and Methods 材料與方法</h2>
+<h2>Materials and Methods｜材料與方法</h2>
 
 [Environment]
 * Windows 10 (VM)</b>
@@ -98,9 +98,9 @@ Simulated SOC environment with real-world alert triage and incident response wor
 * Enable Debug Privileges (啟用 Debug 權限)</b>
 * Crack NTLM Hash to Recover Plaintext Password (破解 NTLM 雜湊還原明文密碼)</b>
 
+---------
 
-
-
+<h2>Initial Triage & Prioritization｜初步警報分類與優先排序</h2>
 
 ---------
 
