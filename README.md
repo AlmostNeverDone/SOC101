@@ -61,17 +61,24 @@ Simulated SOC environment with real-world alert triage and incident response wor
 
 <h2>Tools and Concepts Covered｜涵蓋工具與概念</h2>
 
-<div align="center">
+
 </p>
 
-| Category 分類                          | Tools / Concepts 工具與概念                                     |
-| -------------------------------------- | -------------------------------------------------------------- |
-| Credential Access <br/>憑證存取         | Mimikatz, LSASS memory dumping <br/>Mimikatz、LSASS 記憶體轉儲  |
-| Windows Internals Windows <br/>內部機制 | SAM database, registry hive <br/>SAM 資料庫、登錄單元            |
-| Authentication <br/>驗證機制            | NTLM hash, plaintext credentials <br/>NTLM 雜湊值、明文憑        |
-| Post-Exploitation <br/>攻擊後階段       | Credential dumping, privilege escalation <br/>憑證轉儲、提權     |
-| Password Cracking <br/>密碼破解         | CrackStation, hash cracking                                     |
-| Security Concepts <br/>安全概念         | Memory security, credential exposure <br/>記憶體安全、憑證洩露   |
+| Category (分類) | Tools / Concepts (工具 / 概念) |
+| --- | --- |
+| SOC Operations <br/>SOC 安全營運 | Alert triage, alert ownership, case investigation <br/>警報分類、警報接手、案例調查 |
+| SIEM Investigation <br/>SIEM 調查 | Elastic SIEM |
+| Security Telemetry <br/>安全遙測資料 | Email logs, Firewall logs, ModSecurity Audit Logs <br/>電子郵件日誌、防火牆日誌、ModSecurity 稽核日誌 |
+| Alert Prioritization <br/>警報優先排序 | Risk-based prioritization, severity assessment <br/>風險導向優先排序、嚴重度評估 |
+| Event Correlation <br/>事件關聯 | Cross-alert correlation, email-to-network correlation <br/>跨警報關聯、郵件與網路事件關聯 |
+| Asset Context <br/>資產情境 | Employee and workstation asset inventory <br/>員工與工作站資產清單 |
+| Threat Intelligence <br/>威脅情報 | TryDetectThis, IP reputation analysis <br/>TryDetectThis、IP 信譽分析 |
+| Indicators of Compromise <br/>入侵指標 | IP addresses, domains, URLs, sender addresses <br/>IP 位址、網域、URL、寄件者位址 |
+| Phishing Analysis <br/>釣魚郵件分析 | Brand impersonation, lookalike domains, URL shortening, social engineering <br/>品牌仿冒、相似網域、短網址、社交工程 |
+| Incident Classification <br/>事件分類 | True Positive, False Positive <br/>真陽性、誤報 |
+| Incident Escalation <br/>事件升級 | Escalation decision, containment assessment <br/>升級判斷、控制措施成效評估 |
+| Case Reporting <br/>案例報告 | 5Ws, affected entities, attack indicators, closure rationale <br/>5W 分析、受影響實體、攻擊指標、結案理由 |
+| SOC Performance <br/>SOC 調查績效 | MTTR, report scoring, investigation feedback <br/>平均回應時間、報告評分、調查回饋 |
 
 
 
@@ -86,17 +93,43 @@ Simulated SOC environment with real-world alert triage and incident response wor
 <h2>Materials and Methods｜材料與方法</h2>
 
 [Environment]
-* Windows 10 (VM)</b>
+* TryHackMe SOC Simulator (SOC 模擬調查平台)</b>
+* Elastic SIEM (安全事件與日誌調查平台)</b>
+* Analyst Workstation (SOC 分析師工作站)</b>
+* TryDetectThis (情境式威脅情報與 IP 分析工具)</b>
+* Employee and Asset Inventory (員工與資產清單)</b>
+* Office Network: 10.20.2.0/24
+* Alert Queue and Case Reporting Interface (警報佇列與案例報告介面)</b>
 
+</div>
+<br/>
 
+[Available Data Sources]
+* Email Logs (電子郵件日誌)</b>
+* Firewall Logs (防火牆日誌)</b>
+* ModSecurity Audit Logs (ModSecurity 稽核日誌)</b>
 
+</div>
+<br/>
 
-[Tasks]
-* Execute Mimikatz with Elevated Privileges (以系統管理員權限執行 Mimikatz)</b>
-* Enable Debug Privileges (啟用 Debug 權限)</b>
-* Extract Credentials from LSASS Memory (從 LSASS 記憶體提取憑證)</b>
-* Enable Debug Privileges (啟用 Debug 權限)</b>
-* Crack NTLM Hash to Recover Plaintext Password (破解 NTLM 雜湊還原明文密碼)</b>
+[Investigation Activities]
+* Review SOC Documentation and Alert Triage Playbook (檢視 SOC 文件與警報分類手冊)</b>
+* Review Alert Queue and Identify Initial Indicators (檢視警報佇列並識別初始指標)</b>
+* Group Related Alerts into Investigation Cases (將相關警報關聯為調查案例)</b>
+* Perform Initial Risk-Based Triage and Prioritization (執行初步風險分類與優先排序)</b>
+* Correlate Employees, Workstations, and Internal IP Addresses (關聯員工、工作站與內部 IP 位址)</b>
+* Investigate Email and Firewall Events in Elastic SIEM (使用 Elastic SIEM 調查郵件與防火牆事件)</b>
+* Correlate Suspicious Emails with Subsequent Network Activity (將可疑郵件與後續網路活動進行關聯)</b>
+* Validate Malicious Network Indicators with TryDetectThis (使用 TryDetectThis 驗證惡意網路指標)</b>
+* Distinguish Legitimate Business Activity from Malicious Activity (區分合法業務活動與惡意活動)</b>
+* Classify Alerts as True Positive or False Positive (將警報分類為真陽性或誤報)</b>
+* Assess Containment Effectiveness and Escalation Requirements (評估安全控制成效與升級需求)</b>
+* Document Affected Entities, Indicators, Timeline, and Investigation Findings (記錄受影響實體、指標、時間軸與調查結果)</b>
+* Submit Case Reports and Close Investigated Alerts (提交案例報告並關閉已完成調查的警報)</b>
+* Review Investigation Scores and Automated SOC Feedback (檢視調查評分與自動化 SOC 回饋)</b>
+
+</div>
+<br/>
 
 ---------
 
