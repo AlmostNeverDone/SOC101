@@ -137,30 +137,30 @@ Simulated SOC environment with real-world alert triage and incident response wor
 
 <p align="center">
 <b>Initial SOC Alert Queue<br/> (初始 SOC 警報佇列)</b><br/>
-<img src="YOUR_ALERT_QUEUE_IMAGE" height="80%" width="80%" alt="Initial SOC Alert Queue"/>
+<img src="https://i.imgur.com/hvtpShK.png" height="80%" width="80%" alt="Initial SOC Alert Queue"/>
 <br />
 * Five alerts were identified in the initial queue, including four suspicious inbound email alerts and one High-severity firewall alert.<br/>初始警報佇列共包含五筆警報，包括四筆可疑入站郵件警報與一筆 High Severity 防火牆警報<br/>
 <br />
 <br />
 <b>Case A: Alerts 8815 & 8816 - Amazon Delivery Phishing<br/> (Case A：Amazon 包裹釣魚郵件)</b><br/>
-<img src="YOUR_CASE_A_IMAGE" height="80%" width="80%" alt="Alerts 8815 and 8816"/>
+<img src="https://i.imgur.com/uehyYVq.png" height="80%" width="80%" alt="Alerts 8815 and 8816"/>
 <br />
-* Alerts 8815 and 8816 were grouped because both involved the same suspicious shortened URL, while Alert 8816 was a High-severity firewall alert associated with the affected user's workstation.<br/>Alert 8815 與 8816 因涉及相同的可疑短網址而合併處理，其中 Alert 8816 為 High Severity 防火牆警報，並與受影響使用者的工作站產生關聯<br/>
-* The combination of suspicious email activity and related network activity resulted in this case receiving the highest initial investigation priority.<br/>由於同時出現可疑郵件與相關網路活動，因此本案例被列為最高初步調查優先級<br/>
+* Alerts 8815 and 8816 were grouped because both involved the same suspicious shortened URL, <br/>while Alert 8816 was a High-severity firewall alert associated with the affected user's workstation.<br/>Alert 8815 與 8816 因涉及相同的可疑短網址而合併處理，<br/>其中 Alert 8816 為 High Severity 防火牆警報，並與受影響使用者的工作站產生關聯<br/>
+* The combination of suspicious email activity and related network activity <br/>resulted in this case receiving the highest initial investigation priority.<br/>由於同時出現可疑郵件與相關網路活動，因此本案例被列為最高初步調查優先級<br/>
 <br />
 <br />
 <b>Case B: Alert 8817 - Microsoft Lookalike Phishing<br/> (Case B：Microsoft 仿冒釣魚郵件)</b><br/>
-<img src="YOUR_CASE_B_IMAGE" height="80%" width="80%" alt="Alert 8817"/>
+<img src="https://i.imgur.com/lZ0PlfG.png" height="80%" width="80%" alt="Alert 8817"/>
 <br />
 * Alert 8817 contained a Microsoft lookalike domain and a suspicious login lure, indicating a potential credential-phishing attempt.<br/>Alert 8817 包含 Microsoft 仿冒網域與可疑登入誘導，可能涉及憑證釣魚行為<br/>
 * No related network alert was visible during the initial review, so further SIEM investigation was required to determine the actual risk level.<br/>初步檢視時尚未發現相關網路警報，因此需要進一步透過 SIEM 調查以確認實際風險程度<br/>
 <br />
 <br />
 <b>Case C: Alerts 8814 & 8818 - HR Onboarding Emails<br/> (Case C：HR Onboarding 郵件)</b><br/>
-<img src="YOUR_CASE_C_IMAGE" height="80%" width="80%" alt="Alerts 8814 and 8818"/>
+<img src="https://i.imgur.com/RKIL7rY.png" height="80%" width="80%" alt="Alerts 8814 and 8818"/>
 <br />
 * Alerts 8814 and 8818 were grouped because they shared the same sender, recipient, subject, and external onboarding domain.<br/>Alert 8814 與 8818 因具有相同寄件者、收件者、主旨與外部 onboarding 網域，因此合併為同一案例<br/>
-* No High-severity network activity or clear malicious behavior was visible during the initial review, so this case was assigned a lower investigation priority pending further validation.<br/>初步檢視時尚未發現 High Severity 網路活動或明確惡意行為，因此本案例列為較低調查優先級，等待後續驗證<br/>
+* No High-severity network activity or clear malicious behavior was visible during the initial review, <br/>so this case was assigned a lower investigation priority pending further validation.<br/>初步檢視時尚未發現 High Severity 網路活動或明確惡意行為，<br/>因此本案例列為較低調查優先級，等待後續驗證<br/>
 <br />
 <br />
 
