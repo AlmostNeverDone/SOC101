@@ -169,36 +169,55 @@ Simulated SOC environment with real-world alert triage and incident response wor
 
 ---------
 
-<h2>Practice 實踐</h2>
+<h2>Case Investigation｜案例調查</h2>
 
-<p align="center">
-<b>Task 1: Execute Mimikatz with Elevated Privileges<br/> (以系統管理員權限執行 Mimikatz)</b><br/>
-<img src="https://i.imgur.com/To4gugT.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p align="center"><p align="center">
+<b>Case A1-Email and Firewall Correlation<br/> (郵件與防火牆事件關聯)</b><br/>
+<img src="YOUR_CASE_A1_IMAGE" height="80%" width="80%" alt="Email and Firewall Correlation"/>
+<br />
+* Elastic SIEM identified the same shortened URL in both the suspicious Amazon email and the related firewall event.<br/>Elastic SIEM 在可疑 Amazon 郵件與相關防火牆事件中發現相同短網址<br/>
+* Source IP 10.20.2.17 matched Hannah Harris's assigned workstation.<br/>來源 IP 10.20.2.17 可對應至 Hannah Harris 的工作站<br/>
 <br />
 <br />
-<b>Task 2: Enable Debug Privileges<br/> (啟用 Debug 權限)</b><br/>
-<img src="https://i.imgur.com/F67mJSx.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<b>Case A2-Network Activity Investigation<br/> (網路活動調查)</b><br/>
+<img src="YOUR_CASE_A2_IMAGE" height="80%" width="80%" alt="Network Activity Investigation"/>
 <br />
-* This command enables debug privileges, allowing access to sensitive system processes such as LSASS.<br/>此指令啟用 Debug 權限，使工具能存取如 LSASS 等敏感系統程序 <br/>
-<br />
-<br />
-<b>Task 3: Extract Credentials from LSASS Memory<br/> (從 LSASS 記憶體提取憑證)</b><br/>
-<img src="https://i.imgur.com/bxonO6d.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-* In modern Windows systems, plaintext credentials are no longer stored in LSASS memory by default <br/>due to security enhancements such as disabling WDigest authentication.<br/>在現代 Windows 系統中，由於安全性增強措施（例如停用 WDigest 驗證），預設不再將明文憑儲存在 LSASS 記憶體中 <br/>
+* The outbound request targeted 67.199.248.11 on port 80 and was blocked by the Blocked Websites firewall rule.<br/>外連請求以 67.199.248.11 的 Port 80 為目的地，並由 Blocked Websites 防火牆規則成功阻擋<br/>
+* No additional suspicious activity associated with the phishing URL was identified in the available firewall logs.<br/>現有防火牆日誌中未發現與該釣魚網址相關的其他可疑活動<br/>
 <br />
 <br />
-<b>Task 4: Dump Password Hashes from SAM Database(從 SAM 資料庫擷取密碼雜湊)</b><br/>
-<img src="https://i.imgur.com/skO1g6s.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<b>Case B1-Suspicious Network Activity Investigation<br/> (可疑網路活動調查)</b><br/>
+<img src="YOUR_CASE_B1_IMAGE" height="80%" width="80%" alt="Suspicious Network Activity Investigation"/>
+<br />
+* Elastic SIEM identified an HTTPS connection from Charlotte Allen's workstation IP 10.20.2.25 to the suspicious Microsoft lookalike URL.<br/>Elastic SIEM 發現 Charlotte Allen 的工作站 IP 10.20.2.25 對可疑 Microsoft 仿冒網址發起 HTTPS 連線<br/>
+* The connection reached destination IP 45.148.10.131 on port 443 and was allowed by the firewall.<br/>該連線以 45.148.10.131 的 Port 443 為目的地，且未遭防火牆阻擋<br/>
 <br />
 <br />
-<b>Task 5: Crack NTLM Hash to Recover Plaintext Password<br/> (破解 NTLM 雜湊還原明文密碼)</b><br/>
-<img src="https://i.imgur.com/WuhzWHT.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<b>Case B2-Threat Intelligence Enrichment<br/> (威脅情報擴展)</b><br/>
+<img src="YOUR_CASE_B2_IMAGE" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
 <br />
-* This indicates that this password is not strong enough or is already present in public cracking databases.<br/>這表示該密碼強度不夠，或已經存在於公開的破解資料庫中 <br/>
+* Destination IP 45.148.10.131 was analysed using TryDetectThis and classified as MALICIOUS.<br/>使用 TryDetectThis 分析目的 IP 45.148.10.131，並確認其狀態為 MALICIOUS<br/>
 <br />
 <br />
-
+<b>Case C1-Related Email Event Correlation<br/> (相關郵件事件關聯)</b><br/>
+<img src="YOUR_CASE_C1_IMAGE" height="80%" width="80%" alt="Related Email Event Correlation"/>
+<br />
+* Searching hrconnex.thm identified three related email events, including two onboarding emails and an internal HR-to-IT conversation.<br/>搜尋 hrconnex.thm 後發現三筆相關郵件事件，包括兩封 onboarding 郵件與一封 HR 和 IT Support 之間的內部郵件<br/>
+<br />
+<br />
+<b>Case C2-Business Context Validation<br/> (業務情境驗證)</b><br/>
+<img src="YOUR_CASE_C2_IMAGE" height="80%" width="80%" alt="Business Context Validation"/>
+<br />
+* The internal conversation confirmed that hrconnex.thm was a third-party HR partner used for employee onboarding.<br/>內部郵件確認 hrconnex.thm 為公司進行員工 onboarding 所使用的第三方 HR 合作夥伴<br/>
+<br />
+<br />
+<b>Case C3-Firewall Activity Review<br/> (防火牆活動檢視)</b><br/>
+<img src="YOUR_CASE_C3_IMAGE" height="80%" width="80%" alt="Firewall Activity Review"/>
+<br />
+* Firewall activity associated with Julia Garcia's workstation IP 10.20.2.8 was reviewed for related network activity.<br/>檢視 Julia Garcia 工作站 IP 10.20.2.8 的防火牆活動，以確認是否存在相關網路行為<br/>
+* No connection to hrconnex.thm was identified in the available firewall logs.<br/>現有防火牆日誌中未發現對 hrconnex.thm 的連線<br/>
+<br />
+<br />
 
 
 ---------
