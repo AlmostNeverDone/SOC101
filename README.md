@@ -2,6 +2,8 @@
 
 使用 Elastic SIEM 進行 SOC 警報分類與釣魚事件調查
 
+<br/>
+
 ---------
 
 <h2>Outline｜專題簡介</h2>
@@ -9,6 +11,8 @@
 Simulated SOC environment with real-world alert triage and incident response workflow. This scenario is a basic phishing event with a total of 5 alerts. SIEM tools available include Elastic, Splunk, and Sentinel. It also includes the analyst VM and TryDetectThis (a scenario-based version of VirusTotal).
 
 模擬安全營運中心 (SOC) 環境，包含真實世界的警報分類和事件回應工作流程。本次情境為入門級釣魚事件，警報總數 5。SIEM工具可選 Elastic, Splunk, 以及 Sentinel。同時含有分析師 VM 及 TryDetectThis (情境版VirusTotal)
+
+<br/>
 
 ---------
 
@@ -31,7 +35,7 @@ Simulated SOC environment with real-world alert triage and incident response wor
 | Caleb Anderson | Content <br/>內容部| c.anderson@thetrydaily.thm | win-3462 | 10.20.2.13 |
 | Charlotte Allen | Web Development <br/>網頁開發| c.allen@thetrydaily.thm | win-3463 | 10.20.2.25 |
 
-
+<br/>
 
 ---------
 <h2>Investigation Workflow｜調查工作流程</h2>
@@ -56,6 +60,8 @@ Simulated SOC environment with real-world alert triage and incident response wor
 
 * Escalation Decision<br/>
   是否升級
+
+<br/>
 
 ---------
 
