@@ -6,11 +6,23 @@
 
 ---------
 
-<h2>Outline｜專題簡介</h2>
+<h2>Outline｜調查簡介</h2>
 
-Simulated SOC environment with real-world alert triage and incident response workflow. This scenario is a basic phishing event with a total of 5 alerts. SIEM tools available include Elastic, Splunk, and Sentinel. It also includes the analyst VM and TryDetectThis (a scenario-based version of VirusTotal).
+This project demonstrates a structured Security Operations Center (SOC) alert triage and phishing investigation workflow using the TryHackMe SOC Simulator and Elastic SIEM.
 
-模擬安全營運中心 (SOC) 環境，包含真實世界的警報分類和事件回應工作流程。本次情境為入門級釣魚事件，警報總數 5。SIEM工具可選 Elastic, Splunk, 以及 Sentinel。同時含有分析師 VM 及 TryDetectThis (情境版VirusTotal)
+本專題透過 TryHackMe SOC Simulator 與 Elastic SIEM，展示一套結構化的安全營運中心 (SOC) 警報分類與釣魚事件調查流程。
+
+The scenario contained five security alerts involving suspicious inbound emails and related firewall activity. Initial triage was performed to identify shared indicators, affected users, and potential relationships between alerts, allowing the alerts to be grouped into three investigation cases with different priorities.
+
+本次情境共包含五筆安全警報，涉及可疑入站郵件與相關防火牆活動。首先透過 Initial Triage 識別共同指標、受影響使用者與警報之間可能存在的關聯，並將五筆警報整理為三個不同優先層級的調查案例。
+
+The investigation used email and firewall telemetry in Elastic SIEM, employee and asset inventory information, and TryDetectThis threat intelligence to correlate events, validate suspicious indicators, distinguish legitimate business activity from malicious behavior, and assess whether existing security controls successfully contained the activity.
+
+調查過程結合 Elastic SIEM 中的電子郵件與防火牆遙測資料、員工與資產清單，以及 TryDetectThis 威脅情報，進行事件關聯與可疑指標驗證，並區分合法業務活動與惡意行為，同時評估既有安全控制是否成功阻擋相關活動。
+
+The three cases resulted in different outcomes: a phishing attempt successfully blocked by the firewall, a malicious connection requiring escalation, and legitimate HR onboarding emails confirmed as false positives. The project therefore focuses not only on detecting suspicious activity, but also on evidence-based classification, risk reassessment, escalation decisions, and SOC case reporting.
+
+三個案例最終呈現不同結果，包括遭防火牆成功阻擋的釣魚活動、需要升級處理的惡意連線，以及經確認為誤報的合法 HR onboarding 郵件。因此，本專題不僅著重於偵測可疑行為，也強調以證據為基礎的事件分類、風險重新評估、升級判斷與 SOC 案例報告能力。
 
 <br/>
 
