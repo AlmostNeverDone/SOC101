@@ -214,11 +214,9 @@ The three cases resulted in different outcomes: a phishing attempt successfully 
 <b>Case B2-Workstation Network Activity Investigation<br/> (工作站網路活動調查)</b><br/>
 <img src="https://i.imgur.com/GoQlJNA.jpeg" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
 <br />
-* Destination IP 45.148.10.131 was analysed using TryDetectThis and classified as MALICIOUS.<br/>使用 TryDetectThis 分析目的 IP 45.148.10.131，並確認其狀態為 MALICIOUS<br/>
-<br />
 <br />
 <b>Case B3-Threat Intelligence Enrichment<br/> (威脅情報擴展)</b><br/>
-<img src="https://i.imgur.com/GoQlJNA.jpeg" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
+<img src="https://i.imgur.com/CiyK9YN.jpeg" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
 <br />
 * Destination IP 45.148.10.131 was analysed using TryDetectThis and classified as MALICIOUS.<br/>使用 TryDetectThis 分析目的 IP 45.148.10.131，並確認其狀態為 MALICIOUS<br/>
 <br />
@@ -343,6 +341,5 @@ High-quality SOC reporting should clearly distinguish confirmed observations fro
 
 <h2>Reference 參考</h2>
 
-[UniSQ] [CSC6101 - Penetration Testing](https://handbook-guide.unisq.edu.au/course/2026/CSC6101)<br/>
-[EC-Council] [Certified Ethical Hacker](https://aspen.eccouncil.org/Home)<br/>
+[TryHackMe] [SOC Simulator](https://tryhackme.com/soc-sim)<br/>
 <br/>
