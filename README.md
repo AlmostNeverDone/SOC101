@@ -339,7 +339,7 @@ High-quality SOC reporting should clearly distinguish confirmed observations fro
 
 ---------
 
-<h2>Reference 參考</h2>
+<h2>Reference｜參考</h2>
 
 [TryHackMe] [SOC Simulator](https://tryhackme.com/soc-sim)<br/>
 <br/>
