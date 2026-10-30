@@ -80,13 +80,11 @@ The three cases resulted in different outcomes: a phishing attempt successfully 
 <h2>Tools and Concepts Covered｜涵蓋工具與概念</h2>
 
 
-</p>
-
 | Category (分類) | Tools / Concepts (工具 / 概念) |
 | --- | --- |
 | SOC Operations <br/>SOC 安全營運 | Alert triage, alert ownership, case investigation <br/>警報分類、警報接手、案例調查 |
 | SIEM Investigation <br/>SIEM 調查 | Elastic SIEM |
-| Security Telemetry <br/>安全遙測資料 | Email logs, Firewall logs, ModSecurity Audit Logs <br/>電子郵件日誌、防火牆日誌、ModSecurity 稽核日誌 |
+| Security Telemetry <br/>安全遙測資料 | Email logs, Firewall logs<br/>電子郵件日誌、防火牆日誌 |
 | Alert Prioritization <br/>警報優先排序 | Risk-based prioritization, severity assessment <br/>風險導向優先排序、嚴重度評估 |
 | Event Correlation <br/>事件關聯 | Cross-alert correlation, email-to-network correlation <br/>跨警報關聯、郵件與網路事件關聯 |
 | Asset Context <br/>資產情境 | Employee and workstation asset inventory <br/>員工與工作站資產清單 |
@@ -99,8 +97,6 @@ The three cases resulted in different outcomes: a phishing attempt successfully 
 | SOC Performance <br/>SOC 調查績效 | MTTR, report scoring, investigation feedback <br/>平均回應時間、報告評分、調查回饋 |
 
 
-
-</div>
 <br/>
 
 
@@ -214,11 +210,13 @@ The three cases resulted in different outcomes: a phishing attempt successfully 
 <b>Case B2-Workstation Network Activity Investigation<br/> (工作站網路活動調查)</b><br/>
 <img src="https://i.imgur.com/GoQlJNA.jpeg" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
 <br />
+* Searching *10.20.2.25* identified outbound network activity from Charlotte Allen's workstation.<br/>The firewall recorded the request to 45.148.10.131 on port 443 as allowed.<br/>搜尋 *10.20.2.25*，確認 Charlotte Allen 的工作站存在相關外連活動。<br/>防火牆記錄顯示，前往 45.148.10.131、Port 443 的請求獲准通過<br/>
+<br />
 <br />
 <b>Case B3-Threat Intelligence Enrichment<br/> (威脅情報擴展)</b><br/>
 <img src="https://i.imgur.com/CiyK9YN.jpeg" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
 <br />
-* Destination IP 45.148.10.131 was analysed using TryDetectThis and classified as MALICIOUS.<br/>使用 TryDetectThis 分析目的 IP 45.148.10.131，並確認其狀態為 MALICIOUS<br/>
+* TryDetectThis returned CLEAN for the IP address 102.89.222.143 embedded in the phishing email, <br/>while the destination IP 45.148.10.131 observed in firewall telemetry was classified as MALICIOUS.<br/>TryDetectThis 將釣魚郵件內提供的 IP 102.89.222.143 判定為 CLEAN，<br/>而防火牆遙測中實際觀察到的目的 IP 45.148.10.131 則被判定為 MALICIOUS<br/>
 <br />
 <br />
 <b>Case C1-Related Email Event Correlation<br/> (相關郵件事件關聯)</b><br/>
