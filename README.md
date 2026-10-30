@@ -191,46 +191,46 @@ The three cases resulted in different outcomes: a phishing attempt successfully 
 
 <p align="center"><p align="center">
 <b>Case A1-Email and Firewall Correlation<br/> (郵件與防火牆事件關聯)</b><br/>
-<img src="YOUR_CASE_A1_IMAGE" height="80%" width="80%" alt="Email and Firewall Correlation"/>
+<img src="https://i.imgur.com/dyS3KJv.jpeg" height="80%" width="80%" alt="Email and Firewall Correlation"/>
 <br />
 * Elastic SIEM identified the same shortened URL in both the suspicious Amazon email and the related firewall event.<br/>Elastic SIEM 在可疑 Amazon 郵件與相關防火牆事件中發現相同短網址<br/>
 * Source IP 10.20.2.17 matched Hannah Harris's assigned workstation.<br/>來源 IP 10.20.2.17 可對應至 Hannah Harris 的工作站<br/>
 <br />
 <br />
 <b>Case A2-Network Activity Investigation<br/> (網路活動調查)</b><br/>
-<img src="YOUR_CASE_A2_IMAGE" height="80%" width="80%" alt="Network Activity Investigation"/>
+<img src="https://i.imgur.com/F695V1t.jpeg" height="80%" width="80%" alt="Network Activity Investigation"/>
 <br />
 * The outbound request targeted 67.199.248.11 on port 80 and was blocked by the Blocked Websites firewall rule.<br/>外連請求以 67.199.248.11 的 Port 80 為目的地，並由 Blocked Websites 防火牆規則成功阻擋<br/>
 * No additional suspicious activity associated with the phishing URL was identified in the available firewall logs.<br/>現有防火牆日誌中未發現與該釣魚網址相關的其他可疑活動<br/>
 <br />
 <br />
 <b>Case B1-Suspicious Network Activity Investigation<br/> (可疑網路活動調查)</b><br/>
-<img src="YOUR_CASE_B1_IMAGE" height="80%" width="80%" alt="Suspicious Network Activity Investigation"/>
+<img src="https://i.imgur.com/l0yKB2v.jpeg" height="80%" width="80%" alt="Suspicious Network Activity Investigation"/>
 <br />
 * Elastic SIEM identified an HTTPS connection from Charlotte Allen's workstation IP 10.20.2.25 to the suspicious Microsoft lookalike URL.<br/>Elastic SIEM 發現 Charlotte Allen 的工作站 IP 10.20.2.25 對可疑 Microsoft 仿冒網址發起 HTTPS 連線<br/>
 * The connection reached destination IP 45.148.10.131 on port 443 and was allowed by the firewall.<br/>該連線以 45.148.10.131 的 Port 443 為目的地，且未遭防火牆阻擋<br/>
 <br />
 <br />
-<b>Case B2-Threat Intelligence Enrichment<br/> (威脅情報擴展)</b><br/>
-<img src="YOUR_CASE_B2_IMAGE" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
+<b>Case B2-Workstation Network Activity Investigation<br/> (工作站網路活動調查)</b><br/>
+<img src="https://i.imgur.com/GoQlJNA.jpeg" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
+<br />
+* Destination IP 45.148.10.131 was analysed using TryDetectThis and classified as MALICIOUS.<br/>使用 TryDetectThis 分析目的 IP 45.148.10.131，並確認其狀態為 MALICIOUS<br/>
+<br />
+<br />
+<b>Case B3-Threat Intelligence Enrichment<br/> (威脅情報擴展)</b><br/>
+<img src="https://i.imgur.com/GoQlJNA.jpeg" height="80%" width="80%" alt="Threat Intelligence Enrichment"/>
 <br />
 * Destination IP 45.148.10.131 was analysed using TryDetectThis and classified as MALICIOUS.<br/>使用 TryDetectThis 分析目的 IP 45.148.10.131，並確認其狀態為 MALICIOUS<br/>
 <br />
 <br />
 <b>Case C1-Related Email Event Correlation<br/> (相關郵件事件關聯)</b><br/>
-<img src="YOUR_CASE_C1_IMAGE" height="80%" width="80%" alt="Related Email Event Correlation"/>
+<img src="https://i.imgur.com/5ryILWJ.jpeg" height="80%" width="80%" alt="Related Email Event Correlation"/>
 <br />
 * Searching hrconnex.thm identified three related email events, including two onboarding emails and an internal HR-to-IT conversation.<br/>搜尋 hrconnex.thm 後發現三筆相關郵件事件，包括兩封 onboarding 郵件與一封 HR 和 IT Support 之間的內部郵件<br/>
 <br />
 <br />
-<b>Case C2-Business Context Validation<br/> (業務情境驗證)</b><br/>
-<img src="YOUR_CASE_C2_IMAGE" height="80%" width="80%" alt="Business Context Validation"/>
-<br />
-* The internal conversation confirmed that hrconnex.thm was a third-party HR partner used for employee onboarding.<br/>內部郵件確認 hrconnex.thm 為公司進行員工 onboarding 所使用的第三方 HR 合作夥伴<br/>
-<br />
-<br />
-<b>Case C3-Firewall Activity Review<br/> (防火牆活動檢視)</b><br/>
-<img src="YOUR_CASE_C3_IMAGE" height="80%" width="80%" alt="Firewall Activity Review"/>
+<b>Case C2-Firewall Activity Review<br/> (防火牆活動檢視)</b><br/>
+<img src="https://i.imgur.com/yvf8lr1.jpeg" height="80%" width="80%" alt="Firewall Activity Review"/>
 <br />
 * Firewall activity associated with Julia Garcia's workstation IP 10.20.2.8 was reviewed for related network activity.<br/>檢視 Julia Garcia 工作站 IP 10.20.2.8 的防火牆活動，以確認是否存在相關網路行為<br/>
 * No connection to hrconnex.thm was identified in the available firewall logs.<br/>現有防火牆日誌中未發現對 hrconnex.thm 的連線<br/>
@@ -254,9 +254,9 @@ Five alerts were initially reviewed and correlated into three investigation case
 
 | Case | Related Alerts | Classification | Escalation | Investigation Result |
 | --- | --- | --- | --- | --- |
-| Case A | 8815, 8816 | True Positive | No | The suspicious Amazon-themed email was correlated with a subsequent request to the same shortened URL. The firewall successfully blocked the connection.<br/>可疑 Amazon 主題郵件與後續相同短網址的連線活動成功關聯，且防火牆成功阻擋該連線。 |
-| Case B | 8817 | True Positive | Yes | The affected workstation connected to the Microsoft lookalike URL, the connection was allowed, and the destination IP was classified as MALICIOUS by TryDetectThis.<br/>受影響工作站成功連線至 Microsoft 仿冒網址，該連線未遭防火牆阻擋，且目的 IP 經 TryDetectThis 判定為 MALICIOUS。 |
-| Case C | 8814, 8818 | False Positive | No | Internal HR-to-IT communication confirmed that hrconnex.thm was a legitimate third-party HR partner, supporting closure of the onboarding alerts as false positives.<br/>HR 與 IT Support 的內部郵件確認 hrconnex.thm 為合法第三方 HR 合作夥伴，因此兩筆 onboarding 警報最終判定為誤報。 |
+| A | 8815, 8816 | True Positive | No | The suspicious Amazon-themed email was correlated with a subsequent request to the same shortened URL. The firewall successfully blocked the connection.<br/>可疑 Amazon 主題郵件與後續相同短網址的連線活動成功關聯，且防火牆成功阻擋該連線。 |
+| B | 8817 | True Positive | Yes | The affected workstation connected to the Microsoft lookalike URL, the connection was allowed, and the destination IP was classified as MALICIOUS by TryDetectThis.<br/>受影響工作站成功連線至 Microsoft 仿冒網址，該連線未遭防火牆阻擋，且目的 IP 經 TryDetectThis 判定為 MALICIOUS。 |
+| C | 8814, 8818 | False Positive | No | Internal HR-to-IT communication confirmed that hrconnex.thm was a legitimate third-party HR partner, supporting closure of the onboarding alerts as false positives.<br/>HR 與 IT Support 的內部郵件確認 hrconnex.thm 為合法第三方 HR 合作夥伴，因此兩筆 onboarding 警報最終判定為誤報。 |
 
 <br/>
 
