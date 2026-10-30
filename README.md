@@ -240,52 +240,103 @@ The three cases resulted in different outcomes: a phishing attempt successfully 
 
 ---------
 
-<h2>Results 專題結論</h2>
+<h2>Results｜調查結果與專題結論</h2>
 
-This project demonstrated how credentials can be extracted from a compromised Windows system using Mimikatz. By accessing LSASS memory and the SAM database, sensitive authentication data such as NTLM hashes were successfully obtained.
+This project demonstrated a complete SOC alert triage and investigation workflow using Elastic SIEM, asset information, firewall telemetry, email logs, and threat intelligence enrichment.
 
-本專題展示了如何使用 Mimikatz 從已入侵的 Windows 系統中提取憑證。透過存取 LSASS 記憶體與 SAM 資料庫，成功取得 NTLM 雜湊等敏感驗證資訊。
+本專題展示了一套完整的 SOC 警報分類與調查流程，透過 Elastic SIEM、資產資訊、防火牆遙測、電子郵件日誌與威脅情報進行事件分析。
 
-Although plaintext passwords were not initially available (displayed as Password: (null)), this behavior aligns with modern Windows security mechanisms where cleartext credentials are not stored by default.
+Five alerts were initially reviewed and correlated into three investigation cases based on shared users, URLs, network activity, and business context.
 
-雖然初始階段未取得明文密碼（顯示為 Password: (null)），但這符合現代 Windows 的安全設計，即預設不在記憶體中儲存明文憑證。
+初始共檢視五筆警報，並依據共同使用者、URL、網路活動與業務情境，將相關警報整合為三個調查案例。
+<br/>
+<br/>
 
-To further validate the attack workflow, a controlled weak credential was introduced, allowing successful cracking of the NTLM hash using CrackStation and recovery of the plaintext password.
+| Case | Related Alerts | Classification | Escalation | Investigation Result |
+| --- | --- | --- | --- | --- |
+| Case A | 8815, 8816 | True Positive | No | The suspicious Amazon-themed email was correlated with a subsequent request to the same shortened URL. The firewall successfully blocked the connection.<br/>可疑 Amazon 主題郵件與後續相同短網址的連線活動成功關聯，且防火牆成功阻擋該連線。 |
+| Case B | 8817 | True Positive | Yes | The affected workstation connected to the Microsoft lookalike URL, the connection was allowed, and the destination IP was classified as MALICIOUS by TryDetectThis.<br/>受影響工作站成功連線至 Microsoft 仿冒網址，該連線未遭防火牆阻擋，且目的 IP 經 TryDetectThis 判定為 MALICIOUS。 |
+| Case C | 8814, 8818 | False Positive | No | Internal HR-to-IT communication confirmed that hrconnex.thm was a legitimate third-party HR partner, supporting closure of the onboarding alerts as false positives.<br/>HR 與 IT Support 的內部郵件確認 hrconnex.thm 為合法第三方 HR 合作夥伴，因此兩筆 onboarding 警報最終判定為誤報。 |
 
-為了驗證攻擊流程，本專題建立弱密碼帳號，並成功透過 CrackStation 破解 NTLM 雜湊並還原明文密碼。
+<br/>
 
-This confirms that credential exposure remains a critical risk, regardless of whether plaintext passwords are directly accessible.
+The investigation demonstrated that alert severity and suspicious indicators alone are not sufficient to determine the final incident outcome. Case A represented genuine malicious activity that was successfully contained, Case B required escalation because an allowed connection reached a confirmed malicious destination, while Case C demonstrated how legitimate business activity can trigger security detections.
 
-這證實即使無法直接取得明文密碼，憑證外洩仍然構成重大安全風險。
+本次調查顯示，僅依靠警報嚴重度或可疑指標並不足以決定最終事件結果。Case A 為真實惡意活動，但已由安全控制成功阻擋；Case B 因成功連線至確認為惡意的目的地而需要升級處理；Case C 則展示合法業務活動同樣可能觸發安全偵測。
 
+The SOC Simulator assessment also provided feedback on case-reporting quality. The reports received 95/100 for Alert 8815, 108/110 for Alert 8816, 90/100 for Alert 8817, and full scores for Alerts 8814 and 8818. Feedback highlighted the importance of clearly explaining threat-actor objectives, associating timestamps with individual events, and ensuring remediation recommendations remain proportional to the actual impact.
+
+SOC Simulator 同時對案例報告品質提供自動化評估。Alert 8815 獲得 95/100、Alert 8816 獲得 108/110、Alert 8817 獲得 90/100，而 Alert 8814 與 8818 均獲得滿分。評估結果指出，後續仍應加強攻擊者目的說明、將時間戳記明確對應至各項事件，並確保補救建議與實際影響程度保持適當比例。
+
+Overall, this project strengthened practical skills in risk-based alert triage, event correlation, phishing investigation, threat intelligence validation, incident classification, escalation decision-making, and SOC case reporting.
+
+整體而言，本專題強化了風險導向警報分類、事件關聯、釣魚郵件調查、威脅情報驗證、事件分類、升級判斷，以及 SOC 案例報告等實務能力。
+
+<br/>
+<br/>
 
 ---------
 
-<h2>Security Insight 安全洞察</h2>
+<h2>Security Insight｜安全洞察</h2>
 
-Even when plaintext passwords are not stored in memory, attackers can still extract credential artifacts such as NTLM hashes and Kerberos-related data from LSASS.
+Alert triage is not simply a process of identifying whether an alert is malicious. Effective SOC investigation requires analysts to correlate multiple data sources, understand business context, evaluate the effectiveness of existing security controls, and continuously reassess risk as new evidence becomes available.
 
-即使系統未儲存明文密碼，攻擊者仍可從 LSASS 中提取 NTLM 雜湊與 Kerberos 憑證資料。
+警報分類並不只是判斷警報是否具有惡意。有效的 SOC 調查需要分析師關聯多種資料來源、理解業務情境、評估現有安全控制措施的有效性，並隨著新證據出現持續重新評估風險。
 
-The successful cracking of weak credentials highlights the importance of strong password policies. Passwords that are short or commonly used are highly vulnerable to dictionary-based attacks.
+<br/>
 
-成功破解弱密碼顯示強式密碼政策的重要性。短密碼或常見密碼極易遭字典攻擊破解。
+Risk-Based Prioritization (風險導向優先排序)
 
-Mitigating credential dumping attacks requires a combination of defensive measures, including:
+Alert severity is an important triage factor, but it should not be treated as the final risk assessment. Initial priority should consider available indicators, affected assets, observable network activity, and potential impact, while the final risk level should be updated after investigation.
 
-防禦憑證提取攻擊需採取多層防護措施，包括：
+警報嚴重度是重要的初步分類依據，但不應直接等同於最終風險。初步優先順序應同時考量可用指標、受影響資產、可觀察到的網路活動與潛在影響，並在完成調查後重新評估最終風險。
 
-* Restricting administrative privileges<br/>
-  限制系統管理員權限
-  
-* Enabling LSASS protection mechanisms<br/>
-  啟用 LSASS 保護機制
+<br/>
 
-* Monitoring abnormal process access to LSASS<br/>
-  監控對 LSASS 的異常存取行為
+True Positive Does Not Always Require Escalation (真陽性不一定需要升級)
 
-* Enforcing strong password and credential policies<br/>
-  強制實施強式密碼與憑證管理政策
+Case A demonstrated that a confirmed malicious activity can still be closed without escalation when existing security controls successfully contain the threat and no evidence of further compromise is identified.
+
+Case A 顯示，即使事件確認為真陽性，只要現有安全控制成功阻擋威脅，且未發現進一步入侵證據，仍可能不需要升級處理。
+
+<br/>
+
+Successful Connection Changes the Risk (成功連線會改變風險程度)
+
+Case B demonstrated the importance of evaluating whether preventive controls actually stopped the activity. An allowed connection to a destination independently classified as malicious significantly increased the potential impact and justified escalation for further investigation.
+
+Case B 顯示，分析師必須確認預防性安全控制是否真正阻止事件。當工作站成功連線至經獨立威脅情報確認的惡意目的地時，潛在影響將明顯增加，因此需要進一步升級調查。
+
+<br/>
+
+Business Context Is Critical for False Positive Analysis (業務情境對誤報分析十分重要)
+
+Case C demonstrated that suspicious external links should not automatically be treated as malicious. Internal communication and business context confirmed that the external HR domain was part of a legitimate onboarding process, preventing unnecessary escalation.
+
+Case C 顯示，包含可疑外部連結的郵件不應直接被視為惡意。透過內部通訊與業務背景確認該外部 HR 網域屬於合法 onboarding 流程，可避免不必要的事件升級與資源消耗。
+
+<br/>
+
+Telemetry Must Be Distinguished from Attacker-Supplied Content (安全遙測應與攻擊者提供的內容區分)
+
+During Case B, the IP address shown inside the phishing email was classified as CLEAN, while the destination IP actually observed in firewall telemetry was classified as MALICIOUS. This highlights the importance of distinguishing attacker-controlled content from indicators directly observed by security systems.
+
+在 Case B 中，釣魚郵件內容所提供的 IP 被判定為 CLEAN，而防火牆實際觀察到的目的 IP 則被判定為 MALICIOUS。這說明調查時必須區分攻擊者自行提供的內容，以及由安全系統實際觀察到的威脅指標。
+
+<br/>
+
+Evidence Boundaries and Reporting Accuracy (證據邊界與報告精準度)
+
+The available SIEM telemetry was limited primarily to Email, Firewall, and Webserver logs. Therefore, conclusions regarding user actions, credential submission, or endpoint compromise should not exceed what the available evidence can support.
+
+本次 SIEM 可用的遙測資料主要限制於 Email、Firewall 與 Webserver 日誌，因此針對使用者實際操作、憑證是否遭提交，以及端點是否已遭入侵等結論，都不應超出現有證據所能支持的範圍。
+
+High-quality SOC reporting should clearly distinguish confirmed observations from assumptions, associate timestamps with specific events, explain the likely objective of the threat actor, and recommend remediation proportional to the actual impact.
+
+高品質 SOC 報告應清楚區分已確認事實與推測、將時間戳記明確對應至特定事件、說明攻擊者可能的目的，並依據事件實際影響程度提出適當的補救措施。
+
+<br/>
+<br/>
 
 
 ---------
